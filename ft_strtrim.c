@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:22:24 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/10 22:29:30 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/12 19:20:43 by lcocozza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
-	k = 0;
 	if (!s1)
 		return (NULL);
 	j = ft_strlen(s1);

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcocozza <lcocozza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 16:26:16 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/11 16:42:29 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/12 20:08:06 by lcocozza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(void*))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
 {
-	t_list *newlst;
+	t_list	*newlst;
 
 	newlst = NULL;
 	if (lst)
