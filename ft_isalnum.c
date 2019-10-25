@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 09:40:02 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/08 09:40:03 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:15:47 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
-		return (8);
+		return (1);
 	return (0);
 }

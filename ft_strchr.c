@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:02:58 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/08 12:17:29 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:18:36 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		else
 			i++;
+	if (s[i] == c)
+		return ((char *)&s[i]);
 	return (NULL);
 }

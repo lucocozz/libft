@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 17:54:23 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/10 18:26:57 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:03:10 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_isspace(char c)
 	return (1);
 }
 
-int			ft_atoi(char *str)
+int			ft_atoi(const char *str)
 {
 	int	i;
 	int	neg;

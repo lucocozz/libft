@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:54:42 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/08 18:11:38 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/15 11:22:45 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**ft_split(char const *str, char c)
 	i = 0;
 	offset = 0;
 	tab_size = ft_count_word((char *)str, c);
-	if ((tab = malloc(sizeof(char *) * tab_size + 1)) == NULL)
+	if ((tab = malloc(sizeof(char *) * (tab_size + 1))) == NULL)
 		return (NULL);
 	while (i < tab_size)
 	{
