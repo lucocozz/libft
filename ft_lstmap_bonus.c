@@ -6,31 +6,36 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 16:26:16 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/25 15:17:34 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:31:52 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {
-	t_list	*newlst;
-	t_list	*prev;
+	t_list	*first;
+	t_list	*new;
 
-	newlst = NULL;
-	if (lst)
-	{
-		newlst = ft_lstnew((*f)(lst->content));
-		prev = lst;
-		lst = lst->next;
-		ft_lstdelone(prev, del);
-	}
+	if (!f || !del)
+		return (NULL);
+	first = NULL;
 	while (lst)
 	{
-		ft_lstadd_back(&newlst, ft_lstnew((*f)(lst->content)));
-		prev = lst;
+		if (!(new = ft_lstnew((*f)(lst->content))))
+		{
+			while (first)
+			{
+				new = first->next;
+				(*del)(first->content);
+				free(first);
+				first = new;
+			}
+			lst = NULL;
+			return (NULL);
+		}
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
-		ft_lstdelone(prev, del);
 	}
-	return (newlst);
+	return (first);
 }

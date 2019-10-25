@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:33:44 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/15 11:08:21 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:43:14 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if ((substr = ft_calloc(len + 1, sizeof(char))) == NULL)
 		return (NULL);
 	if (start < ft_strlen(s))

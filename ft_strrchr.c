@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:19:43 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/25 15:26:15 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:09:52 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int i;
+	int i;
 
 	i = ft_strlen(s);
 	while (i >= 0)

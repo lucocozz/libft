@@ -6,13 +6,13 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:54:42 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/15 11:22:45 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:52:12 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_word(char *str, char c)
+static int		ft_count_word(char *str, char c)
 {
 	int	i;
 	int	nb;
@@ -35,7 +35,7 @@ int		ft_count_word(char *str, char c)
 	return (nb);
 }
 
-char	*ft_cut_word(char *str, char c, int *i)
+static char		*ft_cut_word(char *str, char c, int *i)
 {
 	int		j;
 	int		len;
@@ -59,7 +59,28 @@ char	*ft_cut_word(char *str, char c, int *i)
 	return (strnew);
 }
 
-char	**ft_split(char const *str, char c)
+static void		ft_noleaks(char **tab, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (tab[i])
+		{
+			free(tab[i]);
+			tab[i] = NULL;
+		}
+		i++;
+	}
+	if (tab)
+	{
+		free(tab);
+		tab = NULL;
+	}
+}
+
+char			**ft_split(char const *str, char c)
 {
 	int		i;
 	char	**tab;
@@ -68,12 +89,18 @@ char	**ft_split(char const *str, char c)
 
 	i = 0;
 	offset = 0;
+	if (!str)
+		return (NULL);
 	tab_size = ft_count_word((char *)str, c);
 	if ((tab = malloc(sizeof(char *) * (tab_size + 1))) == NULL)
 		return (NULL);
 	while (i < tab_size)
 	{
-		tab[i] = ft_cut_word((char *)str, c, &offset);
+		if ((tab[i] = ft_cut_word((char *)str, c, &offset)) == NULL)
+		{
+			ft_noleaks(tab, i);
+			return (NULL);
+		}
 		i++;
 	}
 	tab[i] = NULL;

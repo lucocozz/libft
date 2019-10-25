@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:30:57 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/25 15:30:13 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:42:38 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strnstr(const char *str, const char *chr, size_t n)
 
 	i = 0;
 	j = 0;
-	if (!str || !chr)
-		return (NULL);
 	if (!chr[0])
 		return ((char *)str);
 	while (chr[i] && str[j] && j < (int)n)
