@@ -6,41 +6,35 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 17:54:23 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/15 17:03:10 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:22:29 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-static int	ft_isspace(char c)
+int		ft_atoi(const char *str)
 {
-	if (c != ' ' && !(c >= '\t' && c <= '\r'))
-		return (0);
-	return (1);
-}
-
-int			ft_atoi(const char *str)
-{
-	int	i;
-	int	neg;
-	int	res;
+	int i;
+	int nb;
+	int nbsigne;
 
 	i = 0;
-	neg = 0;
-	res = 0;
-	while (ft_isspace(str[i]))
+	nb = 0;
+	nbsigne = 0;
+	while (str[i] == ' ' || (str[i] <= 13 && str[i] >= 9))
 		i++;
-	if ((str[i] == '-' || str[i] == '+') &&
-	!(str[i + 1] >= '0' && str[i + 1] <= '9'))
-		return (0);
-	if (str[i] == '-')
-		neg = 1;
 	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] - '0');
+		if (str[i] == '-')
+			nbsigne++;
 		i++;
 	}
-	return (neg ? -res : res);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - 48);
+		i++;
+	}
+	if (nbsigne == 1)
+		nb = nb * -1;
+	return (nb);
 }

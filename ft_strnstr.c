@@ -6,28 +6,32 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:30:57 by lucocozz          #+#    #+#             */
-/*   Updated: 2019/10/25 18:42:38 by lucocozz         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:01:36 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *chr, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int i;
-	int j;
+	size_t place;
+	size_t i;
 
-	i = 0;
-	j = 0;
-	if (!chr[0])
-		return ((char *)str);
-	while (chr[i] && str[j] && j < (int)n)
+	if (little[0] == '\0')
+		return ((char*)big);
+	place = 0;
+	while (big[place] != '\0' && place < len)
 	{
-		if (chr[i] == str[j])
-			i++;
-		else
-			i = 0;
-		j++;
+		if (big[place] == little[0])
+		{
+			i = 1;
+			while (little[i] != '\0' && big[place + i] == little[i] &&
+					(place + i) < len)
+				++i;
+			if (little[i] == '\0')
+				return ((char*)&big[place]);
+		}
+		place++;
 	}
-	return (chr[i] ? NULL : (char *)&str[j - i]);
+	return (0);
 }
